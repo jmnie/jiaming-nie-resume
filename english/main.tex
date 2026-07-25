@@ -1,0 +1,190 @@
+%------------------------
+% Resume Template
+% Author : Anubhav Singh
+% Github : https://github.com/xprilion
+% License : MIT
+%------------------------
+
+\documentclass[a4paper,20pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{rm}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\newcommand{\resumeProjectItem}[3]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{#2} \\
+    \end{tabular*}
+    \vspace{-2pt}
+      #3
+    \vspace{-2pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+   \textbf{{\LARGE Jiaming Nie}} \\
+   \href{https://www.linkedin.com/in/jmnie/}{LinkedIn: in/jmnie}  & Email:\href{mailto:jiaming.nie13@gmail.com}{jiaming.nie13@gmail.com} \\
+  & Mobile: (+86)-135-2171-3097
+\end{tabular*}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Worcester Polytechnic Institute}{MA, US}
+      {Master of Science - Computer Science}{Aug. 2017 - Dec. 2019}
+    \resumeSubheading
+      {University of Liverpool}{Liverpool, UK}
+      {Bachelor of Engineering - Electrical Engineering}{Aug. 2015 - June 2017}
+    \resumeSubheading
+      {Xi'an Jiaotong-Liverpool University}{Suzhou, China}
+      {Bachelor of Engineering - Electrical Engineering}{Aug. 2013 - Aug. 2015}
+    \resumeSubHeadingListEnd
+
+\vspace{2pt}
+\section{Summary}
+\small{
+Software engineer with 5+ years of experience building production systems in \textbf{Python/FastAPI}, currently a \textbf{Founding Software Engineer} at a healthcare AI startup. Experienced in \textbf{LLM fine-tuning}, \textbf{RAG}, healthcare SaaS backend systems, real-time task infrastructure, and enterprise delivery across customer onboarding, legacy-system integration, observability, and production support.
+}
+
+\vspace{4pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Languages}{~~~Python, JavaScript/TypeScript, Java}
+    \resumeSubItem{AI/LLM}{~~~LLM Fine-Tuning (SFT/RFT), RAG}
+    \resumeSubItem{Backend/Cloud}{~~~FastAPI, Flask, Node.js, Redis, MongoDB, Docker, AWS, Prometheus, Grafana}
+	\resumeSubHeadingListEnd
+
+\vspace{4pt}
+\section{Experience}
+  \resumeSubHeadingListStart
+  \vspace{4pt}
+  \resumeSubheading{Youlify}{Remote}
+    {Founding Software Engineer}{Jan. 2025 - Present}
+    \resumeItemListStart
+      \item{Designed and implemented an end-to-end \textbf{LLM} fine-tuning and evaluation pipeline for medical billing code extraction, transforming 2,000+ clinical records into \textbf{SFT/RFT} datasets and automating data processing, training orchestration, checkpoint tracking, evaluation, and cost analysis.}
+      \item{Built backend workflows for denied-claim review and appeal-letter generation by converting claim, \textbf{EOB}, and insurance data into traceable model context, routing requests to tuned models, triggering asynchronous tasks, and synchronizing business state across services.}
+      \item{Architected the migration of a monolithic backend into a scalable \textbf{FastAPI} microservices architecture across Practice Management, Portal APIs, Auth, and GenAI services, improving system resilience and feature delivery speed.}
+      \item{Implemented a \textbf{Prometheus + Grafana} monitoring stack to track full-stack system health across AWS EC2, MongoDB, and microservices, including throughput, error rates, latencies, and resource usage.}
+      \item{Engineered real-time infrastructure using \textbf{Redis}-backed \textbf{WebSockets} for long-running async task updates and \textbf{SSE} for streaming frontend AI chat interactions.}
+      \item{Introduced \textbf{Apache Airflow} to orchestrate long-running patient \textbf{EHR} and clinical-document synchronization, connecting Portal, Integration, and Automation Jobs for task triggering, cancellation, durable status tracking, and recovery across multiple clinics and EHR systems.}
+    \resumeItemListEnd
+
+    \vspace{4pt}
+  \resumeSubheading{peerup}{Shanghai, China}
+    {Software Engineer}{June 2023 - Jan. 2025}
+    \resumeItemListStart
+      \item{Built \textbf{FastAPI} backend services for an AI assistant and chatbot in a note-taking product, supporting streaming responses, file-aware interactions, and editor-triggered actions.}
+      \item{Developed \textbf{RAG} pipelines using \textbf{Milvus} and \textbf{Elasticsearch} to ground assistant responses in public knowledge, user content, and external sources.}
+      \item{Used \textbf{LangChain} and \textbf{LlamaIndex} to package retrieval, context assembly, and external-service calls for multi-step AI features inside the backend service layer.}
+      \item{Maintained \textbf{Docker} containerization and automated \textbf{CI/CD} workflows to support stable AI feature releases.}
+    \resumeItemListEnd
+
+    \vspace{4pt}
+    \resumeSubheading{Oqton}{Shanghai, China}
+    {Software Engineer}{Oct. 2021 - Feb. 2023}
+    \resumeItemListStart
+      \item{Developed \textbf{Python} services that interfaced with industrial machines, collected machine data, and issued control commands through API integrations.}
+      \item{Deployed and maintained \textbf{Docker} applications on Linux gateways and helped troubleshoot production issues across \textbf{Elasticsearch} and Kafka-based systems.}
+      \item{Contributed backend and frontend features across \textbf{Node.js}, Express, and React for machine configuration and data-management workflows.}
+    \resumeItemListEnd
+
+    \vspace{4pt}
+    \resumeSubheading{Micro Focus}{Shanghai, China}
+    {Software Engineer}{July 2020 - Sept. 2021}
+    \resumeItemListStart
+      \item{Developed automation-testing features for web component detection using JavaScript, Node.js, and C++.}
+      \item{Implemented cross-domain component-detection capabilities and improved internal case-handling workflows during product development.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{-5pt}
+\section{Projects}
+\resumeSubHeadingListStart
+
+\vspace{4pt}
+\resumeProjectItem{LLM Fine-Tuning Workflow for Medical Billing Code Extraction}{Feb. 2026 - Present}{
+\resumeItemListStart
+    \item{Engineered end-to-end \textbf{OpenAI}-hosted fine-tuning pipelines to automate medical billing code extraction, curating 2,000+ clinical encounters into \textbf{SFT} and \textbf{RFT} datasets for training, validation, and testing.}
+    \item{Orchestrated \textbf{GPT-4.1 SFT} and \textbf{o4-mini RFT} training jobs via the \textbf{OpenAI Fine-Tuning API}, automating file upload management, status polling, checkpoint tracking, and experiment metadata capture.}
+    \item{Designed a custom \textbf{Python} grader for \textbf{RFT} to optimize structured \textbf{JSON} outputs using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers.}
+    \item{Established an evaluation framework tracking macro/micro metrics across billing codes, integrated with token cost estimation and checkpoint analysis to benchmark against baseline models.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{Secure EHR Data Synchronization Pipeline}{Jan. 2025 - Present}{
+\resumeItemListStart
+    \item{Engineered an \textbf{Apache Airflow}-orchestrated patient \textbf{EHR} synchronization flow, moving long-running Athena and Practice Fusion data pulls into triggerable, cancellable, and traceable \textbf{DAGs}.}
+    \item{Built backend APIs with \textbf{FastAPI + Gunicorn/Uvicorn} and integrated a \textbf{WebSocket} interface to push scraping progress, errors, and task results to the frontend in real time.}
+    \item{Designed multi-tenant state management using \textbf{Redis} distributed locks, task queue state, and \textbf{MongoDB} storage to enforce clinic-level data isolation and idempotent processing.}
+    \item{Supported customer onboarding and production troubleshooting by adding observable logs, task-state lookup flows, and recovery paths for failed synchronization jobs.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{Multifunctional AI Assistant and Knowledge System}{Sept. 2023 - Jan. 2025}{
+\resumeItemListStart
+    \item{Developed the backend for a note-taking AI assistant using \textbf{FastAPI}, supporting \textbf{SSE} streaming, complex instruction execution, file upload Q\&A, and editor-triggered actions.}
+    \item{Built a hybrid retrieval system with \textbf{Milvus} and \textbf{Elasticsearch}, combining public knowledge, user knowledge bases, and third-party web results to improve response accuracy.}
+    \item{Used \textbf{LangChain} and \textbf{LlamaIndex} to package retrieval, context construction, and external-service calls for backend multi-step AI tasks.}
+    \item{Designed \textbf{Redis} session management and permission-isolation mechanisms for message, conversation, and attachment mappings with user-hierarchy based retrieval controls.}
+\resumeItemListEnd
+}
+
+\resumeSubHeadingListEnd
+
+\end{document}
