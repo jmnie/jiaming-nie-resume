@@ -1,9 +1,8 @@
 .PHONY: all clean
 
 all:
-	mkdir -p build/chinese-application build/chinese-standard build/english
-	cd chinese/application && tectonic -o ../../build/chinese-application main.tex
-	cd chinese/standard && tectonic -o ../../build/chinese-standard main.tex
+	mkdir -p build/chinese build/english
+	cd chinese && tectonic -o ../build/chinese main.tex
 	cd english && tectonic -o ../build/english main.tex
 
 clean:
