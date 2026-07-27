@@ -102,10 +102,9 @@ Backend and AI systems engineer with 6+ years of experience building production 
   \resumeSubheading{Youlify}{Remote}
     {Founding Software Engineer}{Jan. 2025 - Present}
     \resumeItemListStart
-      \item{Designed and delivered an \textbf{Apache Airflow}-backed cross-service orchestration layer for \textbf{EHR} and clinical-document synchronization across Portal, Integration, and Automation Jobs, with clinic-level isolation, cancellation, durable status recovery, and \textbf{WebSocket} progress updates.}
+      \item{Built core healthcare-claims backend and \textbf{AI} workflows for \textbf{EOB} parsing, denied-claim review, appeal-letter generation, claim activity, and work queues, connecting claims, insurance, and clinical data through traceable asynchronous processes.}
+      \item{Built cross-service infrastructure for long-running tasks across Practice Management, Portal, Integration, and Automation Jobs, with clinic-level isolation, queueing, cancellation, durable status recovery, and \textbf{WebSocket} progress updates.}
       \item{Led the migration of a monolithic backend into \textbf{FastAPI} microservices across Practice Management, Portal APIs, Auth, and GenAI services, instrumented with \textbf{Prometheus + Grafana} for throughput, error rates, latency, and resource usage.}
-      \item{Built denied-claim review and appeal-letter generation workflows by assembling claim, \textbf{EOB}, insurance, and clinical data into traceable context, routing model requests, triggering asynchronous tasks, and synchronizing business state across services.}
-      \item{Built an \textbf{SFT/RFT} pipeline for medical billing code extraction from 2,000+ clinical records, automating dataset preparation, managed training jobs, checkpoint tracking, structured-output grading, and cost analysis.}
     \resumeItemListEnd
 
     \vspace{4pt}
@@ -135,14 +134,39 @@ Backend and AI systems engineer with 6+ years of experience building production 
 \resumeSubHeadingListEnd
 
 \vspace{-5pt}
-\section{Selected Project}
+\section{Selected Projects}
 \resumeSubHeadingListStart
 
 \vspace{4pt}
 \resumeProjectItem{Medical Billing Code Extraction Pipeline}{Feb. 2026 - Apr. 2026}{
 \resumeItemListStart
     \item{Curated 2,000+ clinical encounters into \textbf{SFT/RFT} training, validation, and test sets, and automated managed fine-tuning job submission, status polling, checkpoint tracking, and experiment metadata capture.}
-    \item{Designed a \textbf{Python} grader for structured billing-code output using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers, with macro/micro metrics, token cost, and checkpoint analysis against baselines.}
+    \item{Designed a \textbf{Python} grader for structured billing-code output using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers.}
+    \item{Compared experiments against baselines using macro/micro metrics, token cost, and checkpoint analysis to inform model selection and production cost.}
+\resumeItemListEnd
+}
+
+\resumeSubHeadingListEnd
+
+\newpage
+\section{Selected Projects (Continued)}
+\resumeSubHeadingListStart
+
+\vspace{4pt}
+\resumeProjectItem{Healthcare SaaS Task and Real-Time Status Platform}{Jan. 2025 - Present}{
+\resumeItemListStart
+    \item{Designed a unified task manager for long-running patient-data, clinical-document, and \textbf{EOB} workflows, covering cross-service triggering, queueing, cancellation, durable status, recovery, and real-time frontend notifications.}
+    \item{Combined \textbf{Redis/MemoryDB} pub/sub, clinic-isolated queues, and distributed state control to handle concurrency, terminal-state consistency, retries, and idempotent execution.}
+    \item{Integrated selected \textbf{EHR} and document-synchronization workflows with \textbf{Apache Airflow}, adding observable logs, task lookup, and production recovery paths.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{AI Assistant and Knowledge-Augmented System}{Sept. 2023 - Jan. 2025}{
+\resumeItemListStart
+    \item{Led the \textbf{FastAPI} backend for a note-taking AI assistant with \textbf{SSE} streaming, file Q\&A, complex instruction execution, and editor-triggered actions.}
+    \item{Built hybrid retrieval with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, user content, and external data sources.}
+    \item{Used \textbf{Redis} for message, session, and attachment mappings with user-level data isolation and retrieval permissions.}
 \resumeItemListEnd
 }
 
