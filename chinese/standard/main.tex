@@ -15,6 +15,7 @@
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{fancyhdr}
 \usepackage[UTF8, fontset=fandol]{ctex}
 
@@ -96,73 +97,50 @@
   & 电话: (+86)-135-2171-3097
 \end{tabular*}
 
-%-----------EDUCATION-----------------
-\section{教育背景}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {伍斯特理工学院}{马萨诸塞，美国}
-      {硕士 - 计算机科学}{2017.8 - 2019.12}
-    %   {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Courses:} Operating Systems, Data Structures, Analysis Of Algorithms, Artificial Intelligence, Machine Learning, Networking, Databases}}}
-    \resumeSubheading
-      {利物浦大学}{利物浦，英国}
-      {学士 - 电气工程}{2015.8 - 2017.6}
-      \resumeSubheading
-      {西交利物浦大学}{苏州，中国}
-      {学士 - 电气工程}{2013.8 - 2015.8}
-    \resumeSubHeadingListEnd
-	    
 \vspace{2pt}
 \section{技能}
 	\resumeSubHeadingListStart
 	\resumeSubItem{语言}{~~~Python, JavaScript/TypeScript, Java}
-    \resumeSubItem{AI/LLM}{~~~LLM Fine-Tuning (SFT/RFT), RAG}
-    \resumeSubItem{后端/部署}{~~~FastAPI, Flask, Node.js, Redis, MongoDB, Docker, AWS, Prometheus, Grafana}
+    \resumeSubItem{AI/LLM}{~~~Agent Workflows, LLM Fine-Tuning (SFT/RFT), RAG}
+    \resumeSubItem{后端/数据}{~~~FastAPI, Redis, MongoDB, Apache Airflow, Docker, AWS, Prometheus, Grafana}
 	\resumeSubHeadingListEnd
 \vspace{4pt}
 \section{工作经历}
   \resumeSubHeadingListStart
   \vspace{4pt}
   \resumeSubheading{Youlify}{远程}
-    {创始软件工程师}{2025.1 - 至今}
+    {Founding Engineer}{2025.1 - 至今}
     \resumeItemListStart
-        \item{独立设计并实现医疗计费代码抽取的端到端 \textbf{LLM} 微调与评测流水线，基于 2,000+ 份临床记录构建 \textbf{SFT/RFT} 数据集，自动化完成数据处理、训练任务编排、检查点跟踪、效果评测与成本分析。}
-        \item{建设拒赔审查与申诉信生成的后端工作流，将理赔单、\textbf{EOB}、保险数据等转化为可追溯上下文，完成模型路由、异步任务触发、状态回传和业务状态管理，支撑长链路理赔自动化任务。}
-        \item{主导单体后端向 \textbf{FastAPI} 微服务架构迁移，拆分诊所管理、Portal API、鉴权和 \textbf{GenAI} 服务，并搭建 \textbf{Prometheus + Grafana} 可观测体系，提升系统稳定性与迭代效率。}
-        \item{设计实时任务基础设施，使用 \textbf{Redis} 结合 \textbf{WebSocket} 为长耗时异步任务推送进度，并利用 \textbf{SSE} 流式传输前端 \textbf{AI} 聊天交互。}
-        \item{引入 \textbf{Apache Airflow} 编排患者 \textbf{EHR} 数据与临床文档同步长任务，打通 Portal、Integration 与 Automation Jobs 的任务触发、取消、状态持久化与恢复链路，支撑多诊所、多 \textbf{EHR} 系统的数据同步与进度追踪。}
+        \item{设计并落地基于 \textbf{Apache Airflow} 的跨服务任务编排层，将 \textbf{EHR} 数据与临床文档同步接入 Portal、Integration 和 Automation Jobs，支持诊所级隔离、任务取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
+        \item{主导单体后端向 \textbf{FastAPI} 微服务架构迁移，拆分诊所管理、Portal API、鉴权和 \textbf{GenAI} 服务，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
+        \item{构建拒赔审查与申诉信生成工作流，将理赔单、\textbf{EOB}、保险和临床数据组装为可追溯上下文，完成模型路由、异步任务触发及跨服务业务状态同步。}
+        \item{构建医疗计费代码抽取的 \textbf{SFT/RFT} 流水线，处理 2,000+ 份临床记录，自动化完成数据集构建、托管训练任务、checkpoint 跟踪、结构化输出评分和成本分析。}
     \resumeItemListEnd
     
     \vspace{4pt}
   \resumeSubheading{北京峥研软件有限责任公司（peerup）}{上海, 中国}
     {软件开发工程师}{2023.6 - 2025.1}
     \resumeItemListStart
-        \item{使用 \textbf{FastAPI} 为笔记产品中的 \textbf{AI} 助手和聊天机器人构建后端服务，支持流式响应、文件感知交互以及在编辑器内由助手触发的操作。}
-        \item{开发了基于 \textbf{Milvus} 和 \textbf{Elasticsearch} 的 \textbf{RAG} 流水线，结合公共知识库、用户内容及外部数据源为助手回答提供依据。}
-        \item{在 \textbf{FastAPI} 生态中使用 \textbf{LangChain} 与 \textbf{LlamaIndex} 封装检索、上下文组装和外部服务调用能力，支撑多步骤 \textbf{AI} 功能在后端稳定执行。}
+        \item{使用 \textbf{FastAPI} 为笔记产品中的 \textbf{AI} 助手和聊天机器人构建后端服务，支持流式响应、文件理解、编辑器内动作触发等核心能力。}
+        \item{构建基于 \textbf{Milvus} 与 \textbf{Elasticsearch} 的混合检索流水线，整合公共知识库、用户内容和外部数据源，并通过 \textbf{Redis} 实现会话状态与用户层级检索权限。}
+        \item{维护 \textbf{Docker} 容器化与自动化 \textbf{CI/CD} 流水线，支撑 AI 功能稳定发布与持续迭代。}
       \resumeItemListEnd
 
     \vspace{4pt}
     \resumeSubheading{Oqton}{上海, 中国}
     {软件开发工程师}{2021.10 - 2023.2}
     \resumeItemListStart
-         \item{开发 \textbf{Python} 服务与工业设备进行交互，采集机器数据并通过 \textbf{API} 接口发送控制指令。}
-        \item{在 \textbf{Linux} 网关上部署并维护 \textbf{Docker} 应用，协助排查跨 \textbf{Elasticsearch} 和 \textbf{Kafka} 系统的生产环境问题。}
-        \item{使用 \textbf{Node.js}、\textbf{Express} 和 \textbf{React.js} 开发后端与前端功能，支持机器配置及数据管理工作流。}
+        \item{面向工业制造场景开发 \textbf{Python} 服务，与工业设备进行交互，采集机器数据并通过 \textbf{API} 下发控制指令，参与企业级系统集成、现场问题定位与交付支持。}
+        \item{在 \textbf{Linux} 网关上部署并维护 \textbf{Docker} 应用，协助排查跨 \textbf{Elasticsearch} 与 \textbf{Kafka} 系统的生产环境问题。}
       \resumeItemListEnd
 
     \vspace{4pt}
     \resumeSubheading
 		{微福思软件科技有限公司(Micro Focus)}{上海, 中国}
-		{软件开发工程师}{2020.7 - 2021.9}
-		\resumeItemListStart
-              \item{使用 \textbf{JavaScript}、\textbf{Node.js} 和 \textbf{C++} 开发用于 Web 组件检测的自动化测试功能。}
-                \item{实现了跨域组件检测功能，并在产品开发期间优化了内部案例处理工作流。}
-        % \resumeItem{Project Course - Find Movie Similarity from Plot Summaries}
-        %   {Created project based course using Unsupervised learning and natural language processing.}
-        % \resumeItem{Tutorial - Introduction to Reinforcement Learning}
-        %   {Created tutorial for Q-learning RL algorithm and  concepts.}
-        % \resumeItem{Impact}{Course has been taken by 250+ students so far with 4.65 average rating.}
-		\resumeItemListEnd
+			{软件开发工程师}{2020.7 - 2021.9}
+			\resumeItemListStart
+              \item{使用 \textbf{JavaScript}、\textbf{Node.js} 与 \textbf{C++} 开发 Web 组件及跨域检测相关自动化测试能力，并优化内部案例处理工作流。}
+			\resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
@@ -178,48 +156,15 @@
 
 %-----------PROJECTS-----------------
 \vspace{-5pt}
-\section{相关项目}
+\section{技术项目}
 \resumeSubHeadingListStart
 
 
 \vspace{4pt}
-\resumeProjectItem{用于医疗计费代码提取的 LLM 微调工作流}{2026.2 - 至今}{
+\resumeProjectItem{医疗计费代码抽取流水线}{2026.2 - 2026.4}{
 \resumeItemListStart
-    \item{设计并实现了端到端 \textbf{OpenAI} 托管的微调流水线，以实现医疗计费代码提取的自动化。处理了超过 2,000 份临床记录，并将其整理为 \textbf{SFT} 和 \textbf{RFT} 数据集，用于模型的训练、验证和测试。}
-    \item{通过 \textbf{OpenAI Fine-Tuning API} 编排 \textbf{GPT-4.1 SFT} 和 \textbf{o4-mini RFT} 训练任务，实现了文件上传管理、状态轮询、检查点追踪和实验元数据采集的自动化。}
-    \item{为 \textbf{RFT} 设计了自定义 \textbf{Python} 评分器以优化结构化 \textbf{JSON} 输出，结合加权编辑距离与领域特定惩罚项（\textbf{CPT} 前缀、\textbf{ICD-10} 和修饰符）对预测结果进行评分。}
-    \item{建立了全面的评估框架，追踪所有计费代码的宏观/微观指标，并结合 \textbf{Token} 成本估算和检查点分析，与基准推理模型进行对标。}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{医疗 SaaS 数据同步与实时任务平台}{2025.1 - 至今}{
-\resumeItemListStart
-    \item{设计并实现基于 \textbf{Apache Airflow} 的患者 \textbf{EHR} 数据同步编排，将 Athena、Practice Fusion 等传统医疗系统的长耗时拉取任务迁移为可触发、可取消、可追踪的 \textbf{DAG}。}
-    \item{使用 \textbf{FastAPI + Gunicorn/Uvicorn} 构建高并发后端 API，并通过 \textbf{WebSocket} 向前端推送抓取进度、错误状态和任务结果。}
-    \item{基于 \textbf{Redis} 分布式锁、任务队列状态和 \textbf{MongoDB} 多租户存储设计幂等处理流程，保障诊所租户间的数据隔离与失败重试。}
-    \item{配合客户接入和上线排障，沉淀可观测日志、任务状态查询和异常恢复流程，缩短新诊所接入与数据验证周期。}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{笔记应用多功能 AI 助手与对话机器人}{2023.9 - 2025.1}{
-\resumeItemListStart
-    \item 主导开发了笔记应用的 AI 助手后端（基于 \textbf{FastAPI}），支持用户通过快捷键唤起助手。实现了基于 \textbf{SSE} (Server-Sent Events) 的流式响应机制，支持复杂指令执行及文件上传问答。
-    \item 构建了基于 \textbf{Milvus} 向量数据库和 \textbf{ElasticSearch} 的混合检索 RAG 系统，整合公共知识库、用户个人知识库及第三方网络搜索结果，显著增强了 LLM 回复的准确性与上下文相关性。
-    \item 使用 \textbf{LangChain} 与 \textbf{LlamaIndex} 封装检索、上下文构造和外部服务调用能力，支撑后端多步骤 \textbf{AI} 任务执行。
-    \item 设计了基于 \textbf{Redis} 的会话管理机制，高效处理消息、对话及附件 ID 的映射与缓存，并实现了基于用户层级的数据隔离与检索权限控制。
-    \item 集成 \textbf{阿里云 OSS} 开发文件上传接口，打通了大语言模型对用户上传文档的深度理解与问答通道。
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{文档内容增强后端系统}{2023.10 - 2024.1}{
-\resumeItemListStart
-    \item 开发了基于 \textbf{FastAPI} 的内容增强后端服务，通过智能分词与关键词高亮技术，大幅提升了用户在笔记应用中的阅读与交互体验。
-    \item 引入 \textbf{Aho-Corasick} 算法实现高性能文本分词，确保前端能从海量输入中实时、精准地识别关键术语。
-    \item 完成了从 MySQL 到 \textbf{ElasticSearch} 的数据迁移与同步，构建了高性能的搜索接口，支持用户点击关键词即时获取详细定义与百科信息。
-    \item 设计并维护了 MySQL 中的关键词映射表，利用网络爬虫预处理的数据建立索引，实现了毫秒级的内容关联与详情检索。
+    \item{将 2,000+ 份临床记录整理为 \textbf{SFT/RFT} 训练、验证和测试集，并通过托管式微调 API 自动化任务提交、状态轮询、checkpoint 与实验元数据管理。}
+    \item{为结构化计费代码输出设计 \textbf{Python} grader，结合加权编辑距离及 \textbf{CPT}、\textbf{ICD-10}、modifier 领域惩罚，并以宏观/微观指标、token 成本和 checkpoint 分析对比基线。}
 \resumeItemListEnd
 }
 
@@ -385,5 +330,15 @@
 %     {Organized events, conducted workshops and delivered workshops reaching over 7000 developers.}{Jan 2018 - Present}
 
 \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\vspace{2pt}
+\section{教育背景}
+\small{
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{伍斯特理工学院}，计算机科学硕士 & 2017.8 - 2019.12 \\
+  \textbf{利物浦大学 / 西交利物浦大学}，电气工程学士 & 2013.8 - 2017.6
+\end{tabular*}
+}
 
 \end{document}
