@@ -97,11 +97,18 @@
 \end{tabular*}
 
 \vspace{2pt}
-\section{技能}
+\section{职业概述}
+\small{
+拥有 6+ 年生产系统经验的应用 AI 与后端平台工程师，现任医疗 AI 创业公司\textbf{创始软件工程师}。负责从架构到交付的生产系统建设，覆盖大模型工作流编排、RAG、模型评测与微调、持久化异步执行、多租户隔离和可观测性。
+}
+
+\vspace{4pt}
+\section{核心能力}
 	\resumeSubHeadingListStart
-	\resumeSubItem{语言}{~~~Python, JavaScript/TypeScript, Java}
-    \resumeSubItem{AI/LLM}{~~~Agent Workflows, LLM Fine-Tuning (SFT/RFT), RAG}
-    \resumeSubItem{后端/数据}{~~~FastAPI, Redis, MongoDB, Apache Airflow, Docker, AWS, Prometheus, Grafana}
+	\resumeSubItem{Agent/LLM}{~~~Agent 工作流编排、RAG、SFT/RFT、大模型评测}
+    \resumeSubItem{后端/平台}{~~~Python, FastAPI, Redis/MemoryDB, Apache Airflow, WebSocket/SSE}
+    \resumeSubItem{数据/基础设施}{~~~MongoDB, Elasticsearch, Milvus, Docker, AWS, Prometheus, Grafana}
+    \resumeSubItem{其他语言}{~~~JavaScript/TypeScript, Java}
 	\resumeSubHeadingListEnd
 
 \vspace{4pt}
@@ -109,19 +116,20 @@
   \resumeSubHeadingListStart
   \vspace{4pt}
   \resumeSubheading{Youlify}{远程}
-    {Founding Engineer}{2025.1 - 至今}
+    {创始软件工程师}{2025.1 - 至今}
     \resumeItemListStart
-        \item{负责医疗理赔核心后端与 \textbf{AI} 工作流建设，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、Claim Activity 与 Work Queue，将理赔、保险和临床数据接入可追溯的异步业务流程。}
-        \item{建设跨服务长任务与状态管理基础设施，贯通 Practice Management、Portal、Integration 和 Automation Jobs，支持诊所级隔离、任务排队与取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
-        \item{主导单体后端向 \textbf{FastAPI} 微服务架构迁移，拆分诊所管理、Portal API、鉴权和 \textbf{GenAI} 服务，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
+        \item{负责医疗理赔核心后端与生产级\textbf{大模型工作流}的架构和交付，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、Claim Activity 与 Work Queue。}
+        \item{设计跨服务长任务执行基础设施，贯通 Practice Management、Portal、Integration 和 Automation Jobs，支持诊所级隔离、任务排队与取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
+        \item{主导单体后端向 \textbf{FastAPI} 服务拆分，覆盖诊所管理、Portal API、鉴权和 GenAI，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
+        \item{基于 2,000+ 份临床记录建设医疗计费代码抽取的 \textbf{SFT/RFT} 与评测流水线，覆盖数据集准备、托管训练、checkpoint 跟踪、结构化输出评分和成本分析。}
     \resumeItemListEnd
 
     \vspace{4pt}
   \resumeSubheading{北京峥研软件有限责任公司（peerup）}{上海, 中国}
     {软件开发工程师}{2023.6 - 2025.1}
     \resumeItemListStart
-        \item{使用 \textbf{FastAPI} 为笔记产品中的 \textbf{AI} 助手和聊天机器人构建后端服务，支持流式响应、文件理解、编辑器内动作触发等核心能力。}
-        \item{构建基于 \textbf{Milvus} 与 \textbf{Elasticsearch} 的混合检索流水线，整合公共知识库、用户内容和外部数据源，并通过 \textbf{Redis} 实现会话状态与用户层级检索权限。}
+        \item{主导笔记 AI 助手的 \textbf{FastAPI} 后端建设，支持 \textbf{SSE} 流式响应、文件问答、复杂指令执行和编辑器内动作触发。}
+        \item{设计基于 \textbf{Milvus} 与 \textbf{Elasticsearch} 的混合 \textbf{RAG}，整合公共知识库、用户内容和外部数据源，并通过 \textbf{Redis} 管理状态与用户级检索权限。}
         \item{维护 \textbf{Docker} 容器化与自动化 \textbf{CI/CD} 流水线，支撑 AI 功能稳定发布与持续迭代。}
       \resumeItemListEnd
 
@@ -129,8 +137,8 @@
     \resumeSubheading{Oqton}{上海, 中国}
     {软件开发工程师}{2021.10 - 2023.2}
     \resumeItemListStart
-        \item{面向工业制造场景开发 \textbf{Python} 服务，与工业设备进行交互，采集机器数据并通过 \textbf{API} 下发控制指令，参与企业级系统集成、现场问题定位与交付支持。}
-        \item{在 \textbf{Linux} 网关上部署并维护 \textbf{Docker} 应用，协助排查跨 \textbf{Elasticsearch} 与 \textbf{Kafka} 系统的生产环境问题。}
+        \item{面向工业制造场景开发 \textbf{Python} 服务，通过 API 完成机器数据采集与控制指令下发，参与企业级系统集成和现场交付。}
+        \item{在 \textbf{Linux} 网关上部署和运维 \textbf{Docker} 应用，排查跨 \textbf{Elasticsearch} 与 \textbf{Kafka} 系统的生产环境问题。}
       \resumeItemListEnd
 
     \vspace{4pt}
@@ -138,8 +146,41 @@
 		{微福思软件科技有限公司(Micro Focus)}{上海, 中国}
 		{软件开发工程师}{2020.7 - 2021.9}
 		\resumeItemListStart
-              \item{使用 \textbf{JavaScript}、\textbf{Node.js} 与 \textbf{C++} 开发 Web 组件及跨域检测相关自动化测试能力，并优化内部案例处理工作流。}
+              \item{使用 \textbf{JavaScript}、\textbf{Node.js} 与 \textbf{C++} 构建 Web 组件及跨域检测自动化能力，并优化内部案例处理工作流。}
 		\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\newpage
+\vspace{-5pt}
+\section{Agent 与 AI 核心系统}
+\resumeSubHeadingListStart
+
+\vspace{4pt}
+\resumeProjectItem{医疗计费代码微调与评测}{2026.2 - 2026.4}{
+\resumeItemListStart
+    \item{将 2,000+ 份临床记录整理为 \textbf{SFT/RFT} 训练、验证和测试集，并通过托管式微调 API 自动化任务提交、状态轮询、checkpoint 与实验元数据管理。}
+    \item{为结构化计费代码输出设计 \textbf{Python} grader，结合加权编辑距离及 \textbf{CPT}、\textbf{ICD-10}、modifier 领域惩罚，并基于宏观/微观指标与 token 成本对比 checkpoint 和基线。}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{持久化 Agent 工作流执行平台}{2025.1 - 至今}{
+\resumeItemListStart
+    \item{围绕患者数据、临床文档和 \textbf{EOB} 工作流设计统一任务与状态模型，支持跨独立部署服务的长任务执行。}
+    \item{结合 \textbf{Redis/MemoryDB} 发布订阅、诊所级队列隔离与持久化状态控制，保证失败重试、任务幂等、终态一致性、取消和异常恢复。}
+    \item{将部分 \textbf{EHR} 与文档同步流程接入 \textbf{Apache Airflow}，并提供可观测日志、任务查询与前端实时状态。}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{知识增强 AI 助手}{2023.9 - 2025.1}{
+\resumeItemListStart
+    \item{构建流式响应、文件问答、多步骤指令执行和编辑器动作的交互层。}
+    \item{结合混合检索与 \textbf{Redis} 消息、会话和附件状态管理，实现用户级数据隔离与检索权限控制。}
+\resumeItemListEnd
+}
 
 \resumeSubHeadingListEnd
 
@@ -157,48 +198,5 @@
       {西交利物浦大学}{苏州，中国}
       {学士 - 电气工程}{2013.8 - 2015.8}
     \resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------------
-\newpage
-\vspace{-5pt}
-\section{技术项目}
-\resumeSubHeadingListStart
-
-\vspace{4pt}
-\resumeProjectItem{医疗计费代码抽取流水线}{2026.2 - 2026.4}{
-\resumeItemListStart
-    \item{将 2,000+ 份临床记录整理为 \textbf{SFT/RFT} 训练、验证和测试集，并通过托管式微调 API 自动化任务提交、状态轮询、checkpoint 与实验元数据管理。}
-    \item{为结构化计费代码输出设计 \textbf{Python} grader，结合加权编辑距离及 \textbf{CPT}、\textbf{ICD-10}、modifier 领域惩罚对预测结果进行评分。}
-    \item{基于宏观/微观指标、token 成本和 checkpoint 分析对比实验结果与基线，为模型选择和生产成本提供依据。}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{医疗 SaaS 长任务与实时状态平台}{2025.1 - 至今}{
-\resumeItemListStart
-    \item{围绕患者数据、临床文档和 \textbf{EOB} 等长耗时任务设计统一 Task Manager，完成跨服务任务触发、排队、取消、状态持久化、异常恢复与前端实时通知。}
-    \item{结合 \textbf{Redis/MemoryDB} 发布订阅、诊所级队列隔离与分布式状态控制，处理并发执行、终态一致性、失败重试与任务幂等性。}
-    \item{将部分 \textbf{EHR} 与文档同步流程接入 \textbf{Apache Airflow}，并补充可观测日志、任务状态查询与生产异常恢复路径。}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{AI 助手与知识增强系统}{2023.9 - 2025.1}{
-\resumeItemListStart
-    \item{主导开发基于 \textbf{FastAPI} 的笔记 AI 助手后端，支持 \textbf{SSE} 流式响应、文件问答、复杂指令执行与编辑器内动作触发。}
-    \item{构建基于 \textbf{Milvus} 与 \textbf{Elasticsearch} 的混合检索系统，整合公共知识库、用户内容和外部数据源。}
-    \item{使用 \textbf{Redis} 管理消息、会话与附件映射，并实现用户层级的数据隔离和检索权限控制。}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{文档内容增强后端系统}{2023.10 - 2024.1}{
-\resumeItemListStart
-    \item{使用 \textbf{FastAPI} 与 \textbf{Aho-Corasick} 算法构建关键词识别和内容增强服务，向前端返回可交互的高亮与详情数据。}
-    \item{完成从 MySQL 到 \textbf{Elasticsearch} 的数据迁移、索引构建与查询接口，实现关键词映射和毫秒级内容检索。}
-\resumeItemListEnd
-}
-
-\resumeSubHeadingListEnd
 
 \end{document}

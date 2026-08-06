@@ -84,15 +84,16 @@
 \vspace{2pt}
 \section{Summary}
 \small{
-Backend and AI systems engineer with 6+ years of experience building production systems in \textbf{Python/FastAPI}, currently a \textbf{Founding Software Engineer} at a healthcare AI startup. Builds production LLM workflows, long-running task infrastructure, and healthcare SaaS services across model integration, multi-tenant state management, observability, and legacy-system integration.
+Applied AI and backend platform engineer with 6+ years of experience building production systems in \textbf{Python/FastAPI}. Currently a \textbf{Founding Software Engineer} at a healthcare AI startup, owning systems across LLM workflow orchestration, RAG, model evaluation and fine-tuning, durable asynchronous execution, multi-tenant isolation, and observability.
 }
 
 \vspace{4pt}
 \section{Skills Summary}
 	\resumeSubHeadingListStart
-	\resumeSubItem{Languages}{~~~Python, JavaScript/TypeScript, Java}
-    \resumeSubItem{AI/LLM}{~~~Agent Workflows, LLM Fine-Tuning (SFT/RFT), RAG}
-    \resumeSubItem{Backend/Data}{~~~FastAPI, Redis, MongoDB, Apache Airflow, Docker, AWS, Prometheus, Grafana}
+	\resumeSubItem{Agent/LLM}{~~~Agent Workflow Orchestration, RAG, SFT/RFT, LLM Evaluation}
+    \resumeSubItem{Backend/Platform}{~~~Python, FastAPI, Redis/MemoryDB, Apache Airflow, WebSocket/SSE}
+    \resumeSubItem{Data/Infrastructure}{~~~MongoDB, Elasticsearch, Milvus, Docker, AWS, Prometheus, Grafana}
+    \resumeSubItem{Other Languages}{~~~JavaScript/TypeScript, Java}
 	\resumeSubHeadingListEnd
 
 \vspace{4pt}
@@ -102,17 +103,18 @@ Backend and AI systems engineer with 6+ years of experience building production 
   \resumeSubheading{Youlify}{Remote}
     {Founding Software Engineer}{Jan. 2025 - Present}
     \resumeItemListStart
-      \item{Built core healthcare-claims backend and \textbf{AI} workflows for \textbf{EOB} parsing, denied-claim review, appeal-letter generation, claim activity, and work queues, connecting claims, insurance, and clinical data through traceable asynchronous processes.}
-      \item{Built cross-service infrastructure for long-running tasks across Practice Management, Portal, Integration, and Automation Jobs, with clinic-level isolation, queueing, cancellation, durable status recovery, and \textbf{WebSocket} progress updates.}
-      \item{Led the migration of a monolithic backend into \textbf{FastAPI} microservices across Practice Management, Portal APIs, Auth, and GenAI services, instrumented with \textbf{Prometheus + Grafana} for throughput, error rates, latency, and resource usage.}
+      \item{Own the architecture and delivery of healthcare-claims backends and production \textbf{LLM workflows} for \textbf{EOB} parsing, denied-claim review, appeal-letter generation, claim activity, and work queues.}
+      \item{Designed cross-service execution infrastructure for long-running workflows across Practice Management, Portal, Integration, and Automation Jobs, with clinic-level isolation, queueing, cancellation, durable recovery, and \textbf{WebSocket} progress updates.}
+      \item{Led the decomposition of a monolithic backend into \textbf{FastAPI} services for Practice Management, Portal APIs, Auth, and GenAI, with \textbf{Prometheus + Grafana} coverage for throughput, errors, latency, and resource usage.}
+      \item{Built an end-to-end \textbf{SFT/RFT} and evaluation pipeline for medical billing code extraction from 2,000+ clinical encounters, covering dataset preparation, managed training jobs, checkpoint tracking, structured-output grading, and cost analysis.}
     \resumeItemListEnd
 
     \vspace{4pt}
   \resumeSubheading{peerup}{Shanghai, China}
     {Software Engineer}{June 2023 - Jan. 2025}
     \resumeItemListStart
-      \item{Built \textbf{FastAPI} backend services for an AI assistant and chatbot in a note-taking product, supporting streaming responses, file-aware interactions, and editor-triggered actions.}
-      \item{Built a hybrid retrieval pipeline with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, user content, and external sources, with \textbf{Redis}-backed session state and user-level retrieval permissions.}
+      \item{Led the \textbf{FastAPI} backend for a note-taking AI assistant, supporting \textbf{SSE} streaming, file Q\&A, complex instruction execution, and editor-triggered actions.}
+      \item{Designed hybrid \textbf{RAG} with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, user content, and external sources, with \textbf{Redis}-backed state and user-level retrieval permissions.}
       \item{Maintained \textbf{Docker} containerization and automated \textbf{CI/CD} workflows to support stable AI feature releases.}
     \resumeItemListEnd
 
@@ -120,16 +122,48 @@ Backend and AI systems engineer with 6+ years of experience building production 
     \resumeSubheading{Oqton}{Shanghai, China}
     {Software Engineer}{Oct. 2021 - Feb. 2023}
     \resumeItemListStart
-      \item{Developed \textbf{Python} services that interfaced with industrial machines, collected machine data, and issued control commands through API integrations.}
-      \item{Deployed and maintained \textbf{Docker} applications on Linux gateways and helped troubleshoot production issues across \textbf{Elasticsearch} and Kafka-based systems.}
+      \item{Built \textbf{Python} services for industrial-machine data collection and control through API integrations, contributing to enterprise system integration and field delivery.}
+      \item{Deployed and operated \textbf{Docker} applications on Linux gateways and troubleshot production issues across \textbf{Elasticsearch} and Kafka-based systems.}
     \resumeItemListEnd
 
     \vspace{4pt}
     \resumeSubheading{Micro Focus}{Shanghai, China}
     {Software Engineer}{July 2020 - Sept. 2021}
     \resumeItemListStart
-      \item{Developed web-component and cross-domain detection automation using \textbf{JavaScript}, \textbf{Node.js}, and \textbf{C++}, and improved internal case-handling workflows.}
+      \item{Built web-component and cross-domain detection automation in \textbf{JavaScript}, \textbf{Node.js}, and \textbf{C++}, and improved internal case-handling workflows.}
     \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\newpage
+\vspace{-5pt}
+\section{Selected Agent and AI Systems}
+\resumeSubHeadingListStart
+
+\vspace{4pt}
+\resumeProjectItem{Clinical Coding Fine-Tuning and Evaluation}{Feb. 2026 - Apr. 2026}{
+\resumeItemListStart
+    \item{Curated 2,000+ clinical encounters into \textbf{SFT/RFT} training, validation, and test sets, and automated managed fine-tuning job submission, status polling, checkpoint tracking, and experiment metadata capture.}
+    \item{Designed a \textbf{Python} grader for structured billing-code output using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers; compared checkpoints against baselines using macro/micro metrics and token cost.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{Durable Agent Workflow Execution Platform}{Jan. 2025 - Present}{
+\resumeItemListStart
+    \item{Designed a unified task and state model for long-running patient-data, clinical-document, and \textbf{EOB} workflows across independently deployed services.}
+    \item{Combined \textbf{Redis/MemoryDB} pub/sub, clinic-isolated queues, and durable state control to enforce retries, idempotency, terminal-state consistency, cancellation, and recovery.}
+    \item{Integrated selected \textbf{EHR} and document-synchronization workflows with \textbf{Apache Airflow}; exposed observable logs, task lookup, and real-time frontend status.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{Knowledge-Augmented AI Assistant}{Sept. 2023 - Jan. 2025}{
+\resumeItemListStart
+    \item{Built the interaction layer for streaming responses, file Q\&A, multi-step instruction execution, and editor actions.}
+    \item{Combined hybrid retrieval with \textbf{Redis}-backed message, session, and attachment state while enforcing user-level data isolation and retrieval permissions.}
+\resumeItemListEnd
+}
 
 \resumeSubHeadingListEnd
 
@@ -147,47 +181,5 @@ Backend and AI systems engineer with 6+ years of experience building production 
       {Xi'an Jiaotong-Liverpool University}{Suzhou, China}
       {Bachelor of Engineering - Electrical Engineering}{Aug. 2013 - Aug. 2015}
     \resumeSubHeadingListEnd
-
-\newpage
-\vspace{-5pt}
-\section{Selected Projects}
-\resumeSubHeadingListStart
-
-\vspace{4pt}
-\resumeProjectItem{Medical Billing Code Extraction Pipeline}{Feb. 2026 - Apr. 2026}{
-\resumeItemListStart
-    \item{Curated 2,000+ clinical encounters into \textbf{SFT/RFT} training, validation, and test sets, and automated managed fine-tuning job submission, status polling, checkpoint tracking, and experiment metadata capture.}
-    \item{Designed a \textbf{Python} grader for structured billing-code output using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers.}
-    \item{Compared experiments against baselines using macro/micro metrics, token cost, and checkpoint analysis to inform model selection and production cost.}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{Healthcare SaaS Task and Real-Time Status Platform}{Jan. 2025 - Present}{
-\resumeItemListStart
-    \item{Designed a unified task manager for long-running patient-data, clinical-document, and \textbf{EOB} workflows, covering cross-service triggering, queueing, cancellation, durable status, recovery, and real-time frontend notifications.}
-    \item{Combined \textbf{Redis/MemoryDB} pub/sub, clinic-isolated queues, and distributed state control to handle concurrency, terminal-state consistency, retries, and idempotent execution.}
-    \item{Integrated selected \textbf{EHR} and document-synchronization workflows with \textbf{Apache Airflow}, adding observable logs, task lookup, and production recovery paths.}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{AI Assistant and Knowledge-Augmented System}{Sept. 2023 - Jan. 2025}{
-\resumeItemListStart
-    \item{Led the \textbf{FastAPI} backend for a note-taking AI assistant with \textbf{SSE} streaming, file Q\&A, complex instruction execution, and editor-triggered actions.}
-    \item{Built hybrid retrieval with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, user content, and external data sources.}
-    \item{Used \textbf{Redis} for message, session, and attachment mappings with user-level data isolation and retrieval permissions.}
-\resumeItemListEnd
-}
-
-\vspace{4pt}
-\resumeProjectItem{Document Content Enhancement Backend}{Oct. 2023 - Jan. 2024}{
-\resumeItemListStart
-    \item{Built a \textbf{FastAPI} content-enhancement service using the \textbf{Aho-Corasick} algorithm to identify keywords and return interactive highlights and detail data.}
-    \item{Migrated content from MySQL to \textbf{Elasticsearch}, building indexes and query APIs for keyword mapping and low-latency retrieval.}
-\resumeItemListEnd
-}
-
-\resumeSubHeadingListEnd
 
 \end{document}
