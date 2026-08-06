@@ -121,6 +121,7 @@
         \item{负责医疗理赔核心后端与生产级\textbf{大模型工作流}的架构和交付，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、Claim Activity 与 Work Queue。}
         \item{设计跨服务长任务执行基础设施，贯通 Practice Management、Portal、Integration 和 Automation Jobs，支持诊所级隔离、任务排队与取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
         \item{主导单体后端向 \textbf{FastAPI} 服务拆分，覆盖诊所管理、Portal API、鉴权和 GenAI，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
+        \item{治理 PMS 生产数据访问路径：复用启动期 \textbf{Beanie/MongoDB} 客户端并限制连接池，将容忍复制延迟的只读报表查询路由至 secondary，隔离核心业务写入与报表读取负载。}
     \resumeItemListEnd
 
     \vspace{4pt}
@@ -174,7 +175,7 @@
 \vspace{4pt}
 \resumeProjectItem{医疗计费代码抽取与微调流水线}{2026.2 - 2026.4}{
 \resumeItemListStart
-    \item{清洗并整理 2,000+ 份临床记录，构建用于医疗计费代码抽取的 \textbf{SFT/RFT} 训练、验证和测试集。}
+    \item{清洗并整理 2,000+ 份临床记录，按诊所分层并固定随机种子划分训练、验证和测试集，保持 \textbf{SFT/RFT} 使用一致的样本集合。}
     \item{通过托管式微调 API 编排训练任务，实现文件上传、任务提交、状态轮询、checkpoint 跟踪与实验元数据管理自动化。}
     \item{为结构化计费代码输出设计 \textbf{Python} grader，结合加权编辑距离及 \textbf{CPT}、\textbf{ICD-10}、modifier 领域惩罚，对预测代码、顺序和修饰符进行分项评分。}
     \item{基于宏观/微观代码匹配指标、token 成本和 checkpoint 分析对比实验结果与基线，为模型选择和生产成本控制提供依据。}
@@ -182,12 +183,22 @@
 }
 
 \vspace{4pt}
+\resumeProjectItem{医疗文档处理与智能审核服务}{2025.1 - 至今}{
+\resumeItemListStart
+    \item{面向 Charge Verifier、LCD Checker、拒赔分析与申诉场景构建 \textbf{FastAPI} 服务，复用 \textbf{SSE} 流式对话链路，将理赔、临床记录和政策上下文组装为结构化请求。}
+    \item{设计逐页 PDF 文本提取级联：优先读取原生文本，低文本页再进入 \textbf{RapidOCR}，仍不足时回退视觉模型，兼容文本型与扫描型医疗文档。}
+    \item{按模型上下文窗口计算输入预算和安全缓冲，按预算裁剪历史消息并拒绝超限请求；增加文档字数入口限制，避免超大病例上下文进入生成链路。}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
 \resumeProjectItem{医疗 SaaS 长任务与实时状态平台}{2025.1 - 至今}{
 \resumeItemListStart
     \item{围绕患者数据、临床文档和 \textbf{EOB} 等长耗时流程设计统一 Task Manager，贯通 Practice Management、Portal、Integration 与 Automation Jobs 的任务触发和状态流转。}
-    \item{实现任务排队、取消、持久化状态、失败重试与异常恢复，并通过 \textbf{WebSocket} 向前端实时推送执行进度、错误和最终结果。}
-    \item{结合 \textbf{Redis/MemoryDB} 发布订阅、诊所级队列隔离与分布式状态控制，处理并发执行、任务幂等和终态一致性，避免跨租户任务相互影响。}
-    \item{将部分 \textbf{EHR} 与文档同步流程接入 \textbf{Apache Airflow}，把长耗时任务组织为可触发、可取消、可追踪的 DAG，并补充任务查询、日志和生产恢复路径。}
+    \item{以 \textbf{MongoDB/Beanie} 作为持久化事实源，通过 TaskRun/TaskRunItem 记录请求人、患者与 Encounter 标识、外部执行引用和完整状态历史。}
+    \item{以 \textbf{Redis/MemoryDB} 发布订阅和 \textbf{WebSocket} 传递请求人级变更通知；重连或漏消息后由前端重新查询列表与详情，不将通知通道作为任务状态源。}
+    \item{在 Portal API 实施诊所与请求人权限，支持分页筛选、父子批量任务聚合以及 completed、failed、cancelled、partially failed 等终态与上下文动作。}
+    \item{将部分 \textbf{EHR} 与文档同步流程接入 \textbf{Apache Airflow}，通过诊所级队列实现可触发、可取消、可追踪的 DAG，并保持重试幂等与终态一致性。}
 \resumeItemListEnd
 }
 

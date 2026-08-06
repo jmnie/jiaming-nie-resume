@@ -106,6 +106,7 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
       \item{Own the architecture and delivery of healthcare-claims backends and production \textbf{LLM workflows} for \textbf{EOB} parsing, denied-claim review, appeal-letter generation, claim activity, and work queues.}
       \item{Designed cross-service execution infrastructure for long-running workflows across Practice Management, Portal, Integration, and Automation Jobs, with clinic-level isolation, queueing, cancellation, durable recovery, and \textbf{WebSocket} progress updates.}
       \item{Led the decomposition of a monolithic backend into \textbf{FastAPI} services for Practice Management, Portal APIs, Auth, and GenAI, with \textbf{Prometheus + Grafana} coverage for throughput, errors, latency, and resource usage.}
+      \item{Hardened PMS data access by reusing startup-managed \textbf{Beanie/MongoDB} clients, bounding connection pools, and routing replication-tolerant report reads to secondaries to isolate operational writes from reporting load.}
     \resumeItemListEnd
 
     \vspace{4pt}
@@ -157,7 +158,7 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
 \vspace{4pt}
 \resumeProjectItem{Medical Billing Code Extraction and Fine-Tuning Pipeline}{Feb. 2026 - Apr. 2026}{
 \resumeItemListStart
-    \item{Cleaned and curated 2,000+ clinical encounters into \textbf{SFT/RFT} training, validation, and test sets for medical billing code extraction.}
+    \item{Cleaned and curated 2,000+ clinical encounters into practice-stratified training, validation, and test sets with a fixed random seed and identical sample membership across \textbf{SFT/RFT} formats.}
     \item{Orchestrated managed fine-tuning jobs through API workflows for file upload, job submission, status polling, checkpoint tracking, and experiment metadata capture.}
     \item{Designed a \textbf{Python} grader for structured billing-code output using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers, scoring predicted codes, order, and modifiers separately.}
     \item{Compared experiments against baselines using macro/micro code-match metrics, token cost, and checkpoint analysis to inform model selection and production cost controls.}
@@ -165,12 +166,22 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
 }
 
 \vspace{4pt}
+\resumeProjectItem{Medical Document Processing and Intelligent Review Service}{Jan. 2025 - Present}{
+\resumeItemListStart
+    \item{Built \textbf{FastAPI} services for Charge Verifier, LCD Checker, denial review, and appeal workflows, reusing an \textbf{SSE} interaction path to assemble claims, clinical notes, and policy context into structured requests.}
+    \item{Designed a page-level PDF extraction cascade that uses native text first, \textbf{RapidOCR} for low-text pages, and a vision-model fallback, supporting both digital and scanned medical documents.}
+    \item{Calculated model-specific input budgets and safety buffers, trimmed conversation history to fit, rejected oversized requests, and added document word limits before content entered generation workflows.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
 \resumeProjectItem{Healthcare SaaS Task and Real-Time Status Platform}{Jan. 2025 - Present}{
 \resumeItemListStart
     \item{Designed a unified task manager for long-running patient-data, clinical-document, and \textbf{EOB} workflows across Practice Management, Portal, Integration, and Automation Jobs.}
-    \item{Implemented queueing, cancellation, durable status, retries, and recovery, with \textbf{WebSocket} updates for execution progress, errors, and final results.}
-    \item{Combined \textbf{Redis/MemoryDB} pub/sub, clinic-isolated queues, and distributed state control to handle concurrency, idempotency, and terminal-state consistency without cross-tenant interference.}
-    \item{Integrated selected \textbf{EHR} and document-synchronization workflows with \textbf{Apache Airflow} as triggerable, cancellable, and traceable DAGs, with task lookup, observable logs, and production recovery paths.}
+    \item{Used \textbf{MongoDB/Beanie} as the durable source of truth, with TaskRun/TaskRunItem records for requester, patient and encounter identifiers, external execution references, and complete status history.}
+    \item{Used \textbf{Redis/MemoryDB} pub/sub and \textbf{WebSocket} for requester-scoped change notifications; clients recover missed events by re-querying list and detail APIs instead of treating notifications as state.}
+    \item{Enforced practice and requester scope in Portal APIs, with pagination, filtering, parent-child bulk aggregation, terminal states including completed, failed, cancelled, and partially failed, and context-aware actions.}
+    \item{Integrated selected \textbf{EHR} and document-synchronization flows with \textbf{Apache Airflow} as clinic-queued, triggerable, cancellable, and traceable DAGs while preserving retry idempotency and terminal-state consistency.}
 \resumeItemListEnd
 }
 
