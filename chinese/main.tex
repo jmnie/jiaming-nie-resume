@@ -118,7 +118,7 @@
   \resumeSubheading{Youlify}{远程}
     {创始软件工程师}{2025.1 - 至今}
     \resumeItemListStart
-        \item{负责医疗理赔核心后端与生产级\textbf{大模型工作流}的架构和交付，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、理赔活动跟踪与工作队列。}
+        \item{主导医疗理赔核心后端与生产级\textbf{大模型工作流}的架构和交付，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、理赔活动跟踪与工作队列。}
         \item{设计跨服务长任务执行基础设施，贯通前端网关、核心业务、EHR 集成与任务执行服务，支持诊所级隔离、任务排队与取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
         \item{主导单体后端向 \textbf{FastAPI} 服务拆分，覆盖诊所管理、前端 API、身份鉴权和 GenAI，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
         \item{治理核心业务服务的数据访问路径：复用启动期 \textbf{Beanie/MongoDB} 客户端并限制连接池，将容忍复制延迟的只读报表查询路由至 secondary，隔离业务写入与报表读取负载。}
@@ -175,10 +175,10 @@
 \vspace{4pt}
 \resumeProjectItem{医疗计费代码抽取与微调实验流水线}{2026.2 - 2026.4}{
 \resumeItemListStart
-    \item{清洗并整理 2,000+ 份临床记录，按诊所分层并固定随机种子划分训练、验证和测试集，构建 \textbf{SFT} 数据集与对应的 \textbf{RFT} 实验格式。}
+    \item{处理并构建包含 \textbf{22.5K 条医疗编码记录}的 \textbf{SFT/RFT} 数据语料，使用固定随机种子划分训练、验证和测试集；最终 mixed SFT 使用 \textbf{3.9K 条经过上下文长度过滤的训练样本}。}
     \item{通过托管式微调 API 编排 \textbf{SFT} 训练任务，实现文件上传、任务提交、状态轮询、checkpoint 跟踪与实验元数据管理自动化。}
-    \item{为 \textbf{RFT} 实验设计 Python grader，结合加权编辑距离及 \textbf{CPT}、\textbf{ICD-10}、modifier 领域惩罚，对预测代码、顺序和修饰符进行分项评分。}
-    \item{基于代码匹配指标、token 成本和 checkpoint 分析对比 \textbf{SFT} 结果与生产基线，为模型选择和成本控制提供依据。}
+    \item{构建分层离线评估与失败案例分析，分别衡量 \textbf{CPT}、\textbf{ICD-10}、modifier 及完整 CPT+modifier+ICD-10+unit 组合的 precision、recall 与 \textbf{macro/micro F1}。}
+    \item{在同一 held-out office 测试集上，相较通用大模型基线将 \textbf{CPT macro F1 从 0.666 提升至 0.817}，并将严格的 \textbf{CPT+modifier+ICD-10+unit 完整组合 macro F1 提升 0.218}，同时跟踪 token 成本与 checkpoint 表现辅助模型选择。}
 \resumeItemListEnd
 }
 

@@ -158,10 +158,10 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
 \vspace{4pt}
 \resumeProjectItem{Medical Billing Code Extraction and Fine-Tuning Experiments}{Feb. 2026 - Apr. 2026}{
 \resumeItemListStart
-    \item{Cleaned and curated 2,000+ clinical encounters into practice-stratified training, validation, and test sets with a fixed random seed, producing \textbf{SFT} datasets and corresponding \textbf{RFT} experiment formats.}
+    \item{Processed and curated \textbf{22.5K medical-coding encounters} into \textbf{SFT/RFT} corpora with fixed-seed train/validation/test splits; trained the final mixed SFT model on \textbf{3.9K context-window-filtered examples}.}
     \item{Orchestrated managed \textbf{SFT} jobs through API workflows for file upload, job submission, status polling, checkpoint tracking, and experiment metadata capture.}
-    \item{Designed a Python grader for \textbf{RFT} experimentation using weighted edit distance and domain-specific penalties for \textbf{CPT}, \textbf{ICD-10}, and modifiers, scoring predicted codes, order, and modifiers separately.}
-    \item{Compared \textbf{SFT} results with production baselines using code-match metrics, token cost, and checkpoint analysis to inform model selection and cost controls.}
+    \item{Built hierarchical offline evaluation and failure-case analysis across \textbf{CPT}, \textbf{ICD-10}, modifier, and full CPT+modifier+ICD-10+unit combinations, reporting precision, recall, and \textbf{macro/micro F1}.}
+    \item{On the same held-out office test set, improved \textbf{CPT macro F1 from 0.666 to 0.817} and raised strict \textbf{full CPT+modifier+ICD-10+unit exact-match macro F1 by 0.218} over a general-purpose LLM baseline, while tracking token cost and checkpoint performance for model selection.}
 \resumeItemListEnd
 }
 
