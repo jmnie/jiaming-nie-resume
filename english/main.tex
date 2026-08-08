@@ -106,7 +106,7 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
       \item{Own the architecture and delivery of healthcare-claims backends and production \textbf{LLM workflows} for \textbf{EOB} parsing, denied-claim review, appeal-letter generation, claim activity tracking, and work queues.}
       \item{Designed cross-service execution infrastructure spanning frontend gateways, core business services, EHR integrations, and job execution, with clinic-level isolation, queueing, cancellation, durable recovery, and \textbf{WebSocket} progress updates.}
       \item{Led the decomposition of a monolithic backend into \textbf{FastAPI} services for practice management, frontend APIs, authentication, and GenAI, with \textbf{Prometheus + Grafana} coverage for throughput, errors, latency, and resource usage.}
-      \item{Hardened core-service data access by reusing startup-managed \textbf{Beanie/MongoDB} clients, bounding connection pools, and routing replication-tolerant report reads to secondaries to isolate operational writes from reporting load.}
+      \item{Standardized \textbf{MongoDB/Beanie} client reuse and pool limits, routing replication-lag-tolerant reporting reads to replica-set secondaries to isolate operational writes from analytics workloads.}
     \resumeItemListEnd
 
     \vspace{4pt}

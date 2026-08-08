@@ -121,7 +121,7 @@
         \item{主导医疗理赔核心后端与生产级\textbf{大模型工作流}的架构和交付，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、理赔活动跟踪与工作队列。}
         \item{设计跨服务长任务执行基础设施，贯通前端网关、核心业务、EHR 集成与任务执行服务，支持诊所级隔离、任务排队与取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
         \item{主导单体后端向 \textbf{FastAPI} 服务拆分，覆盖诊所管理、前端 API、身份鉴权和 GenAI，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
-        \item{治理核心业务服务的数据访问路径：复用启动期 \textbf{Beanie/MongoDB} 客户端并限制连接池，将容忍复制延迟的只读报表查询路由至 secondary，隔离业务写入与报表读取负载。}
+        \item{统一 \textbf{MongoDB/Beanie} 连接复用与连接池配置，并将可容忍复制延迟的报表查询路由至 MongoDB 副本集从节点，隔离在线写入与分析读取负载。}
     \resumeItemListEnd
 
     \vspace{4pt}
