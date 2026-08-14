@@ -1,0 +1,184 @@
+% Optiver AI Engineer targeted resume
+% Based on the repository's canonical English resume template
+
+\documentclass[a4paper,20pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{rm}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\newcommand{\resumeProjectItem}[3]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{#2} \\
+    \end{tabular*}
+    \vspace{-2pt}
+      #3
+    \par\vspace{-2pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+   \textbf{{\LARGE Jiaming Nie}} \\
+   \href{https://www.linkedin.com/in/jmnie/}{LinkedIn: in/jmnie}  & Email: \href{mailto:jiaming.nie13@gmail.com}{jiaming.nie13@gmail.com} \\
+  & Mobile: (+86)-135-2171-3097
+\end{tabular*}
+
+\vspace{2pt}
+\section{Summary}
+\small{
+Applied AI and backend platform engineer with 6+ years of experience, including 4+ years building production \textbf{Python} systems. Own production \textbf{AI-agent and LLM workflows} across enterprise and EHR integrations, orchestration, evaluation, durable asynchronous execution, multi-tenant isolation, and observability.
+}
+
+\vspace{4pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{AI/LLM}{~~~AI Agent Workflows, LLM Evaluation, Model Selection, RAG, SFT}
+    \resumeSubItem{Python/Backend}{~~~Python 3, FastAPI, AsyncIO, Type Hints, Pytest, Redis/MemoryDB, WebSocket/SSE}
+    \resumeSubItem{Architecture/Delivery}{~~~Modular Services, Enterprise API Integration, CI/CD, Git}
+    \resumeSubItem{Data/Infrastructure}{~~~MongoDB, Docker, AWS, Prometheus, Grafana}
+	\resumeSubHeadingListEnd
+
+\vspace{4pt}
+\section{Experience}
+  \resumeSubHeadingListStart
+  \vspace{4pt}
+  \resumeSubheading{Youlify}{Remote}
+    {Founding Software Engineer}{Jan. 2025 - Present}
+    \resumeItemListStart
+      \item{Own architecture and delivery of production \textbf{AI-agent and LLM workflows} for EOB parsing, denied-claim review, appeal generation, charge verification, and work queues, integrating claims services and \textbf{EHR} systems.}
+      \item{Designed cross-service orchestration spanning gateways, business services, EHR integrations, and job execution, with tenant isolation, queueing, cancellation, idempotent retries, durable recovery, and \textbf{WebSocket} progress updates.}
+      \item{Built evaluation and failure-analysis workflows for medical-coding AI systems, comparing held-out precision, recall, F1, token cost, and checkpoint quality to guide model selection.}
+      \item{Led decomposition of a monolithic backend into modular \textbf{FastAPI} services for practice management, frontend APIs, authentication, and GenAI, with \textbf{Prometheus + Grafana} coverage for throughput, errors, latency, and resource usage.}
+    \resumeItemListEnd
+
+    \vspace{4pt}
+  \resumeSubheading{peerup}{Shanghai, China}
+    {Software Engineer}{June 2023 - Jan. 2025}
+    \resumeItemListStart
+      \item{Led the \textbf{FastAPI} backend for a note-taking AI assistant, supporting \textbf{SSE} streaming, file Q\&A, complex instruction execution, and editor-triggered actions.}
+      \item{Designed hybrid \textbf{RAG} with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, user content, and external sources, with \textbf{Redis}-backed state and user-level retrieval permissions.}
+      \item{Maintained \textbf{Docker} containerization and automated \textbf{CI/CD} workflows to support stable AI feature releases.}
+    \resumeItemListEnd
+
+    \vspace{4pt}
+    \resumeSubheading{Oqton}{Shanghai, China}
+    {Software Engineer}{Oct. 2021 - Feb. 2023}
+    \resumeItemListStart
+      \item{Built \textbf{Python} services for industrial-machine data collection and control through API integrations, contributing to enterprise system integration and field delivery.}
+      \item{Deployed and operated \textbf{Docker} applications on Linux gateways and troubleshot production issues across \textbf{Elasticsearch} and Kafka-based systems.}
+    \resumeItemListEnd
+
+    \vspace{4pt}
+    \resumeSubheading{Micro Focus}{Shanghai, China}
+    {Software Engineer}{July 2020 - Sept. 2021}
+    \resumeItemListStart
+      \item{Built web-component and cross-domain detection automation in \textbf{JavaScript}, \textbf{Node.js}, and \textbf{C++}, and improved internal case-handling workflows.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{2pt}
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Worcester Polytechnic Institute}{MA, US}
+      {Master of Science - Computer Science}{Aug. 2017 - Dec. 2019}
+    \resumeSubheading
+      {University of Liverpool}{Liverpool, UK}
+      {Bachelor of Engineering - Electrical Engineering}{Aug. 2015 - June 2017}
+    \resumeSubheading
+      {Xi'an Jiaotong-Liverpool University}{Suzhou, China}
+      {Bachelor of Engineering - Electrical Engineering}{Aug. 2013 - Aug. 2015}
+    \resumeSubHeadingListEnd
+
+\newpage
+\vspace{-5pt}
+\section{Selected Projects}
+\resumeSubHeadingListStart
+
+\vspace{4pt}
+\resumeProjectItem{AI Assistant and Knowledge-Augmented System}{Sept. 2023 - Jan. 2025}{
+\resumeItemListStart
+    \item{Led the \textbf{FastAPI} backend for a note-taking AI assistant with \textbf{SSE} streaming, file Q\&A, complex instruction execution, and editor-triggered actions.}
+    \item{Built hybrid retrieval with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, private user content, and external sources to supply relevant context for response generation.}
+    \item{Used \textbf{Redis} for message, session, and attachment mappings while enforcing user-level data isolation and retrieval permissions.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{Healthcare AI Workflow and Real-Time Status Platform}{Jan. 2025 - Present}{
+\resumeItemListStart
+    \item{Designed a unified platform for long-running patient-data, clinical-document, and \textbf{EOB} workflows across gateways, business services, EHR integrations, and job execution.}
+    \item{Used \textbf{MongoDB/Beanie} as the durable source of truth, with parent-child task records for requesters, patient and encounter identifiers, external execution references, and complete status history.}
+    \item{Enforced practice and requester scope at the frontend API boundary; \textbf{Redis/MemoryDB + WebSocket} publish changes while clients re-query durable state after reconnects or missed events.}
+    \item{Integrated EHR and document-synchronization flows with \textbf{Apache Airflow} as clinic-queued, triggerable, cancellable, and traceable DAGs while preserving retry idempotency and terminal-state consistency.}
+\resumeItemListEnd
+}
+
+\vspace{4pt}
+\resumeProjectItem{Medical Billing Code Fine-Tuning and Evaluation}{Feb. 2026 - Apr. 2026}{
+\resumeItemListStart
+    \item{Processed \textbf{22.5K medical-coding encounters} into fixed-seed train, validation, and test splits; trained the final mixed \textbf{SFT} model on \textbf{3.9K context-window-filtered examples}.}
+    \item{Orchestrated managed SFT jobs through API workflows for file upload, submission, status polling, checkpoint tracking, and experiment metadata capture.}
+    \item{Built offline evaluation and failure analysis across \textbf{CPT}, \textbf{ICD-10}, modifiers, and full code combinations, reporting precision, recall, and macro/micro F1.}
+    \item{On the same held-out test set, improved \textbf{CPT macro F1 from 0.666 to 0.817} and strict full-code exact-match macro F1 by \textbf{0.218} over a general-purpose LLM baseline, while tracking token cost and checkpoint performance.}
+\resumeItemListEnd
+}
+
+\resumeSubHeadingListEnd
+
+\end{document}
