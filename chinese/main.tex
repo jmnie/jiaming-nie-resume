@@ -99,16 +99,16 @@
 \vspace{2pt}
 \section{职业概述}
 \small{
-拥有 6+ 年生产系统经验的应用 AI 与后端平台工程师，现任医疗 AI 创业公司\textbf{创始软件工程师}。负责从架构到交付的生产系统建设，覆盖大模型工作流编排、RAG、持久化异步执行、多租户隔离和可观测体系。
+拥有 6+ 年软件开发经验，专注 \textbf{Python 后端与应用 AI}。曾任医疗 AI 创业公司创始软件工程师，负责医疗理赔后端、EHR 数据集成和异步任务平台，并具备大模型微调与离线评测经验。
 }
 
 \vspace{4pt}
-\section{核心能力}
+\section{技术栈}
 	\resumeSubHeadingListStart
-	\resumeSubItem{AI/LLM}{~~~大模型工作流编排、RAG}
-    \resumeSubItem{后端/平台}{~~~Python, FastAPI, Redis/MemoryDB, WebSocket/SSE}
-    \resumeSubItem{数据/基础设施}{~~~MongoDB, Docker, AWS, Prometheus, Grafana}
-    \resumeSubItem{其他语言}{~~~JavaScript/TypeScript, Java}
+    \resumeSubItem{后端开发}{~~~Python, FastAPI}
+    \resumeSubItem{数据存储}{~~~MongoDB, Redis / Amazon MemoryDB}
+    \resumeSubItem{基础设施}{~~~AWS, Docker, Apache Airflow, Jenkins CI/CD}
+    \resumeSubItem{可观测性}{~~~Prometheus, Grafana}
 	\resumeSubHeadingListEnd
 
 \vspace{4pt}
@@ -116,12 +116,12 @@
   \resumeSubHeadingListStart
   \vspace{4pt}
   \resumeSubheading{Youlify}{远程}
-    {创始软件工程师}{2025.1 - 至今}
+    {创始软件工程师}{2025.1 - 2026.9}
     \resumeItemListStart
-        \item{主导医疗理赔核心后端与生产级\textbf{大模型工作流}的架构和交付，覆盖 \textbf{EOB} 解析、拒赔审查、申诉信生成、理赔活动跟踪与工作队列。}
-        \item{设计跨服务长任务执行基础设施，贯通前端网关、核心业务、EHR 集成与任务执行服务，支持诊所级隔离、任务排队与取消、状态持久化与恢复，以及 \textbf{WebSocket} 实时进度推送。}
-        \item{主导单体后端向 \textbf{FastAPI} 服务拆分，覆盖诊所管理、前端 API、身份鉴权和 GenAI，并通过 \textbf{Prometheus + Grafana} 监控吞吐、错误率、延迟和资源使用。}
-        \item{统一 \textbf{MongoDB/Beanie} 连接复用与连接池配置，并将可容忍复制延迟的报表查询路由至 MongoDB 副本集从节点，隔离在线写入与分析读取负载。}
+        \item{开发医疗计费后端服务与 \textbf{Agent/LLM 工作流}，覆盖 \textbf{EOB} 解析、拒赔分析、申诉信生成、医疗编码审核和任务状态跟踪。}
+        \item{为支持多诊所同时从 EHR 拉取患者资料和临床文档，将同步任务迁移至 \textbf{Airflow}，并通过 \textbf{Redis} 排队避免同一诊所的浏览器操作相互干扰；不同诊所可并行处理，用户可查看进度或取消任务。}
+        \item{开发多个 \textbf{EHR 系统}的集成，使用 \textbf{Playwright} 与 API 同步患者、保险、就诊记录及文档，接入医疗计费流程。}
+        \item{实现跨鉴权与业务服务的诊所级多角色权限、用户停用和会话撤销；在移除访问权限时支持理赔任务转交，并保留历史操作人记录。}
     \resumeItemListEnd
 
     \vspace{4pt}
@@ -173,40 +173,43 @@
 \resumeSubHeadingListStart
 
 \vspace{4pt}
-\resumeProjectItem{医疗计费代码抽取与微调实验流水线}{2026.2 - 2026.4}{
+\resumeProjectItem{医疗计费编码抽取与模型微调}{2026.2 - 2026.4}{
 \resumeItemListStart
-    \item{处理并构建包含 \textbf{22.5K 条医疗编码记录}的 \textbf{SFT/RFT} 数据语料，使用固定随机种子划分训练、验证和测试集；最终 mixed SFT 使用 \textbf{3.9K 条经过上下文长度过滤的训练样本}。}
-    \item{通过托管式微调 API 编排 \textbf{SFT} 训练任务，实现文件上传、任务提交、状态轮询、checkpoint 跟踪与实验元数据管理自动化。}
-    \item{构建分层离线评估与失败案例分析，分别衡量 \textbf{CPT}、\textbf{ICD-10}、modifier 及完整 CPT+modifier+ICD-10+unit 组合的 precision、recall 与 \textbf{macro/micro F1}。}
-    \item{在同一 held-out office 测试集上，相较通用大模型基线将 \textbf{CPT macro F1 从 0.666 提升至 0.817}，并将严格的 \textbf{CPT+modifier+ICD-10+unit 完整组合 macro F1 提升 0.218}，同时跟踪 token 成本与 checkpoint 表现辅助模型选择。}
+    \item{整理包含 \textbf{2.25 万条医疗编码记录}的微调训练数据集，使用固定随机种子划分训练集、验证集和测试集；最终使用 \textbf{3,900 条经上下文长度筛选的样本}进行混合数据监督微调。}
+    \item{通过托管式微调接口编排\textbf{监督微调}任务，实现训练文件上传、任务提交、状态轮询、模型检查点跟踪与实验元数据管理自动化。}
+    \item{建立分层离线评估与失败案例分析流程，分别评估\textbf{医疗操作编码（CPT）}、\textbf{诊断编码（ICD-10）}、修饰符及包含计费单位数的完整编码组合，计算精确率、召回率及 \textbf{Macro F1、Micro F1}。}
+    \item{在同一独立留出的门诊测试集上，相较通用大模型基线，将 \textbf{CPT Macro F1 从 0.666 提升至 0.817}，将\textbf{完整编码组合严格匹配的 Macro F1 提升 0.218}；同时比较模型各检查点的效果与词元使用成本，辅助模型选择。}
 \resumeItemListEnd
 }
 
 \vspace{4pt}
-\resumeProjectItem{医疗文档处理与智能审核服务}{2025.1 - 至今}{
+\resumeProjectItem{多 EHR 集成与临床数据同步}{2025.1 - 2026.9}{
 \resumeItemListStart
-    \item{面向医疗计费审核、政策合规校验、拒赔分析与申诉场景构建 \textbf{FastAPI} 服务，复用 \textbf{SSE} 流式交互链路，将理赔、临床记录和政策上下文组装为结构化请求。}
-    \item{设计逐页 PDF 文本提取级联：优先读取原生文本，低文本页再进入 \textbf{RapidOCR}，仍不足时回退视觉模型，兼容文本型与扫描型医疗文档。}
-    \item{按模型上下文窗口计算输入预算和安全缓冲，按预算裁剪历史消息并拒绝超限请求；增加文档字数入口限制，避免超大病例上下文进入生成链路。}
+    \item{集成 Athena、MDLand、Practice Fusion 等多个 EHR，使用 \textbf{Playwright} 和接口采集患者资料、保险、就诊记录及临床文档。}
+    \item{实现自动登录、多因素认证、每日同步与历史数据补录，并在支持接口的 EHR 中用接口调用替代浏览器操作。}
+    \item{通过独立的\textbf{租户数据微服务}接口，按诊所保存患者、保险及收费记录，将采集数据接入医疗计费流程。}
+    \item{将临床文档关联至对应患者和就诊记录，供理赔审核使用；增加数据校验与错误记录，便于排查和补齐缺失数据。}
 \resumeItemListEnd
 }
 
 \vspace{4pt}
-\resumeProjectItem{医疗 SaaS 长任务与实时状态平台}{2025.1 - 至今}{
+\resumeProjectItem{基于 Airflow 的数据同步与任务管理平台}{2026.6 - 2026.9}{
 \resumeItemListStart
-    \item{围绕患者数据、临床文档和 \textbf{EOB} 等长耗时流程设计统一任务平台，贯通前端网关、核心业务、EHR 集成与任务执行服务的触发和状态流转。}
-    \item{以 \textbf{MongoDB/Beanie} 作为持久化事实源，通过父子任务记录保存请求人、患者与 Encounter 标识、外部执行引用和完整状态历史。}
-    \item{在前端 API 边界实施诊所和请求人权限、分页筛选与父子任务聚合；\textbf{Redis/MemoryDB + WebSocket} 仅发布变更通知，重连或漏消息后由客户端重新查询持久化状态。}
-    \item{将部分 \textbf{EHR} 与文档同步流程接入 \textbf{Apache Airflow}，通过诊所级队列实现可触发、可取消、可追踪的 DAG，并保持重试幂等与终态一致性。}
+    \item{为统一调度患者资料与临床文档同步，将集成服务中的后台任务迁移至 \textbf{Airflow} 工作流，保持原有业务接口和任务状态定义不变。}
+    \item{使用 \textbf{Redis/MemoryDB 有序集合}实现按环境、诊所隔离的先进先出队列，使同一诊所的浏览器任务依次执行、不同诊所并行处理；排队期间不占用执行资源，直接调用接口的任务无需等待浏览器队列。}
+    \item{通过定期心跳确认任务仍在运行，并在任务超时失效或被取消时清理队列，避免执行进程中断后留下的任务持续阻塞后续同步。}
+    \item{在任务分发前将记录保存至 \textbf{MongoDB}，并在工作流结束时写入最终状态；写入失败时仅重试状态保存，避免重复执行浏览器操作，替代原先每分钟核对任务状态的方式。}
 \resumeItemListEnd
 }
 
 \vspace{4pt}
-\resumeProjectItem{AI 助手与知识增强系统}{2023.9 - 2025.1}{
+\resumeProjectItem{后端基础设施与运维}{2025.5 - 2026.9}{
 \resumeItemListStart
-    \item{主导开发基于 \textbf{FastAPI} 的笔记 AI 助手后端，支持 \textbf{SSE} 流式响应、文件问答、复杂指令执行和编辑器内动作触发。}
-    \item{构建基于 \textbf{Milvus} 与 \textbf{Elasticsearch} 的混合检索系统，整合公共知识库、用户私有内容和外部数据源，为回答生成补充相关上下文。}
-    \item{使用 \textbf{Redis} 管理消息、会话与附件映射，并实现用户层级的数据隔离和检索权限控制。}
+    \item{主导单体后端按业务领域拆分为 \textbf{FastAPI} 服务，覆盖 Portal API、诊所管理、鉴权和 GenAI，使各服务能够独立部署。}
+    \item{为多个后端仓库建立统一的 \textbf{Docker/Jenkins 持续集成与部署流程}，串联合并请求检查、镜像构建和多环境发布；将镜像版本关联至代码提交，支持各服务独立发布与版本追踪。}
+    \item{开发 \textbf{Google Chat 部署机器人}，支持 Jenkins 环境选择、确认及各环境部署状态跟踪；持久化部署状态，防止重复触发并在重启后恢复跟踪。}
+    \item{接入 \textbf{Prometheus/Grafana} 服务监控，跟踪请求错误与延迟；排查容器启动、日志依赖及 Nginx 路由故障，恢复开发与测试环境服务。}
+    \item{通过共享客户端、连接池上限和超时配置完善 \textbf{MongoDB} 连接管理；将只读报表与定时任务查询分流至 secondary 副本，减轻主节点读负载。}
 \resumeItemListEnd
 }
 

@@ -84,16 +84,16 @@
 \vspace{2pt}
 \section{Summary}
 \small{
-Applied AI and backend platform engineer with 6+ years of experience building production systems in \textbf{Python/FastAPI}. Currently a \textbf{Founding Software Engineer} at a healthcare AI startup, owning systems across LLM workflow orchestration, RAG, durable asynchronous execution, multi-tenant isolation, and observability.
+Software engineer with 6+ years of experience, focused on \textbf{Python backends and applied AI}. As a founding engineer at a healthcare AI startup, built claims-processing services, EHR integrations, and asynchronous task infrastructure, alongside LLM fine-tuning and evaluation workflows.
 }
 
 \vspace{4pt}
-\section{Skills Summary}
+\section{Technical Skills}
 	\resumeSubHeadingListStart
-	\resumeSubItem{AI/LLM}{~~~LLM Workflow Orchestration, RAG}
-    \resumeSubItem{Backend/Platform}{~~~Python, FastAPI, Redis/MemoryDB, WebSocket/SSE}
-    \resumeSubItem{Data/Infrastructure}{~~~MongoDB, Docker, AWS, Prometheus, Grafana}
-    \resumeSubItem{Other Languages}{~~~JavaScript/TypeScript, Java}
+    \resumeSubItem{Backend}{~~~Python, FastAPI}
+    \resumeSubItem{Data Stores}{~~~MongoDB, Redis / Amazon MemoryDB}
+    \resumeSubItem{Infrastructure}{~~~AWS, Docker, Apache Airflow, Jenkins CI/CD}
+    \resumeSubItem{Observability}{~~~Prometheus, Grafana}
 	\resumeSubHeadingListEnd
 
 \vspace{4pt}
@@ -101,12 +101,12 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
   \resumeSubHeadingListStart
   \vspace{4pt}
   \resumeSubheading{Youlify}{Remote}
-    {Founding Software Engineer}{Jan. 2025 - Present}
+    {Founding Software Engineer}{Jan. 2025 - Sept. 2026}
     \resumeItemListStart
-      \item{Own the architecture and delivery of healthcare-claims backends and production \textbf{LLM workflows} for \textbf{EOB} parsing, denied-claim review, appeal-letter generation, claim activity tracking, and work queues.}
-      \item{Designed cross-service execution infrastructure spanning frontend gateways, core business services, EHR integrations, and job execution, with clinic-level isolation, queueing, cancellation, durable recovery, and \textbf{WebSocket} progress updates.}
-      \item{Led the decomposition of a monolithic backend into \textbf{FastAPI} services for practice management, frontend APIs, authentication, and GenAI, with \textbf{Prometheus + Grafana} coverage for throughput, errors, latency, and resource usage.}
-      \item{Standardized \textbf{MongoDB/Beanie} client reuse and pool limits, routing replication-lag-tolerant reporting reads to replica-set secondaries to isolate operational writes from analytics workloads.}
+      \item{Built backend services and \textbf{agent/LLM workflows} for medical billing, including \textbf{EOB} parsing, denial analysis, appeal-letter generation, charge verification, and task tracking.}
+      \item{Moved EHR patient and document retrieval to \textbf{Airflow} to support concurrent synchronization across practices; used \textbf{Redis} queues to prevent conflicting browser operations within each practice, with user-visible progress and cancellation.}
+      \item{Built integrations across multiple \textbf{EHR systems} using \textbf{Playwright} and APIs to synchronize patient, insurance, encounter, and document data into medical billing workflows.}
+      \item{Implemented practice-scoped roles, user deactivation, and session revocation across authentication and business services; supported claim reassignment during access removal while preserving historical actor records.}
     \resumeItemListEnd
 
     \vspace{4pt}
@@ -166,30 +166,33 @@ Applied AI and backend platform engineer with 6+ years of experience building pr
 }
 
 \vspace{4pt}
-\resumeProjectItem{Medical Document Processing and Intelligent Review Service}{Jan. 2025 - Present}{
+\resumeProjectItem{Multi-EHR Integration and Clinical Data Synchronization}{Jan. 2025 - Sept. 2026}{
 \resumeItemListStart
-    \item{Built \textbf{FastAPI} services for medical coding review, policy-compliance checks, denial analysis, and appeal workflows, reusing an \textbf{SSE} interaction path to assemble claims, clinical notes, and policy context into structured requests.}
-    \item{Designed a page-level PDF extraction cascade that uses native text first, \textbf{RapidOCR} for low-text pages, and a vision-model fallback, supporting both digital and scanned medical documents.}
-    \item{Calculated model-specific input budgets and safety buffers, trimmed conversation history to fit, rejected oversized requests, and added document word limits before content entered generation workflows.}
+    \item{Integrated multiple EHR systems, including Athena, MDLand, and Practice Fusion, using \textbf{Playwright} and APIs to retrieve patient demographics, insurance, encounter records, and clinical documents.}
+    \item{Implemented automated login, multi-factor authentication, daily synchronization, and historical backfills; replaced browser operations with API calls where supported.}
+    \item{Persisted patient, insurance, and charge records by practice through APIs of a separate \textbf{tenant data microservice (PMS)}, connecting EHR data to medical billing workflows.}
+    \item{Linked clinical documents to the corresponding patients and encounters for claim review; added validation and error reporting to help identify and recover missing data.}
 \resumeItemListEnd
 }
 
 \vspace{4pt}
-\resumeProjectItem{Healthcare SaaS Task and Real-Time Status Platform}{Jan. 2025 - Present}{
+\resumeProjectItem{Airflow Task Execution and Persistent Status Platform}{June 2026 - Sept. 2026}{
 \resumeItemListStart
-    \item{Designed a unified platform for long-running patient-data, clinical-document, and \textbf{EOB} workflows across frontend gateways, core business services, EHR integrations, and job execution.}
-    \item{Used \textbf{MongoDB/Beanie} as the durable source of truth, with parent-child task records for requester, patient and encounter identifiers, external execution references, and complete status history.}
-    \item{Enforced practice and requester scope, pagination, filtering, and parent-child aggregation at the frontend API boundary; \textbf{Redis/MemoryDB + WebSocket} only publish changes, while clients re-query durable state after reconnects or missed events.}
-    \item{Integrated selected \textbf{EHR} and document-synchronization flows with \textbf{Apache Airflow} as clinic-queued, triggerable, cancellable, and traceable DAGs while preserving retry idempotency and terminal-state consistency.}
+    \item{Moved patient retrieval and document synchronization out of Integration Service background tasks into \textbf{Airflow DAGs}, preserving existing product APIs and task-status contracts.}
+    \item{Implemented environment- and practice-scoped FIFO queues with \textbf{Redis/MemoryDB sorted sets}; Airflow reschedule sensors released worker slots while waiting, and API tasks bypassed browser queues.}
+    \item{Added lease heartbeats, expired-member cleanup, and cancellation cleanup to handle interrupted workers and abandoned tasks without indefinitely blocking a practice queue.}
+    \item{Persisted tasks in \textbf{MongoDB} before dispatch and added DAG finalizers that retry terminal-state writes without rerunning browser operations, replacing per-minute status reconciliation.}
 \resumeItemListEnd
 }
 
 \vspace{4pt}
-\resumeProjectItem{AI Assistant and Knowledge-Augmented System}{Sept. 2023 - Jan. 2025}{
+\resumeProjectItem{Backend Infrastructure and Operations}{May 2025 - Sept. 2026}{
 \resumeItemListStart
-    \item{Led the \textbf{FastAPI} backend for a note-taking AI assistant with \textbf{SSE} streaming, file Q\&A, complex instruction execution, and editor-triggered actions.}
-    \item{Built hybrid retrieval with \textbf{Milvus} and \textbf{Elasticsearch} across public knowledge, private user content, and external sources to supply relevant context for response generation.}
-    \item{Used \textbf{Redis} for message, session, and attachment mappings while enforcing user-level data isolation and retrieval permissions.}
+    \item{Led the decomposition of a monolithic backend into \textbf{FastAPI} services for portal APIs, practice management, authentication, and GenAI, separating business domains into independently deployable services.}
+    \item{Standardized \textbf{Docker/Jenkins CI/CD} across backend repositories, connecting automated PR checks, image builds, and multi-environment deployments; linked image versions to source commits to support independent service releases and version tracking.}
+    \item{Built a \textbf{Google Chat deployment bot} for Jenkins with environment selection, confirmation, and per-environment status tracking; persisted deployment state to prevent duplicate triggers and resume tracking after restarts.}
+    \item{Instrumented services with \textbf{Prometheus/Grafana} monitoring for request errors and latency; troubleshot container startup, logging dependencies, and Nginx routing failures to restore development and staging services.}
+    \item{Hardened \textbf{MongoDB} access through shared clients, bounded connection pools, and timeouts; routed read-only reporting and scheduled jobs to secondary replicas to offload primary reads.}
 \resumeItemListEnd
 }
 
